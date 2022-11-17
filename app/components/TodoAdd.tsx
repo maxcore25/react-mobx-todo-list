@@ -1,7 +1,6 @@
-import * as React from 'react';
 import { Button, Input, Grid } from '@chakra-ui/react';
 import { observer } from 'mobx-react-lite';
-import todoStore from '../store';
+import { todoStore } from '@/store';
 
 function TodoAdd() {
   return (
