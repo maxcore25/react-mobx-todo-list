@@ -1,26 +1,42 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react"
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["app/components/*"],
+      "@/assets/*": ["app/assets/*"],
+      "@/elements/*": ["app/components/elements/*"],
+      "@/layouts/*": ["app/components/layouts/*"],
+      "@/modules/*": ["app/components/modules/*"],
+      "@/constants": ["app/constants"],
+      "@/constants/*": ["app/constants/*"],
+      "@/context": ["app/context"],
+      "@/context/*": ["app/context/*"],
+      "@/hooks": ["app/hooks"],
+      "@/hooks/*": ["app/hooks/*"],
+      "@/styles/*": ["app/styles/*"],
+      "@/temp": ["app/temp"],
+      "@/utils": ["app/utils"],
+      "@/utils/*": ["app/utils/*"],
+      "@/types": ["app/types"],
+      "@/types/*": ["app/types/*"],
+      "@/store": ["app/store"],
+      "@/store/*": ["app/store/*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

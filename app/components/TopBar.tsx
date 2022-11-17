@@ -1,7 +1,6 @@
-import * as React from 'react';
+import { todoStore } from '@/store';
 import { Button, Grid } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
-import todoStore from '../store';
 
 function TopBar() {
   const onLoad = () => {
