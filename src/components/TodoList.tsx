@@ -1,16 +1,20 @@
 import * as React from 'react';
 import { Button, Input, Flex, Checkbox, Heading } from '@chakra-ui/react';
-import todoStore from '../store';
+import todoStore, { Todo } from '../store';
 import { observer } from 'mobx-react-lite';
 
 function TodoListItems() {
   return (
     <>
-      {todoStore.todos.map((todo: { id: number; text: string }) => (
+      {todoStore.todos.map((todo: Todo) => (
         <Flex pt={2} key={todo.id}>
-          <Checkbox />
-          <Input mx={2} value={todo.text} isReadOnly />
-          <Button>Delete</Button>
+          <Checkbox onClick={() => (todo.done = !todo.done)} />
+          <Input
+            mx={2}
+            value={todo.text}
+            onChange={e => (todo.text = e.target.value)}
+          />
+          <Button onClick={() => todoStore.removeTodo(todo.id)}>Delete</Button>
         </Flex>
       ))}
     </>
