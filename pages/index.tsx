@@ -1,7 +1,7 @@
 import { ChakraProvider, Box, theme } from '@chakra-ui/react';
-import TodoAdd from 'app/components/TodoAdd';
-import TodoList from 'app/components/TodoList';
-import TopBar from 'app/components/TopBar';
+import TodoAdd from '@/components/TodoAdd';
+import TodoList from '@/components/TodoList';
+import TopBar from '@/components/TopBar';
 
 export default function Home() {
   return (
