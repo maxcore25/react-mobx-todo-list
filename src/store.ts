@@ -7,18 +7,6 @@ export interface Todo {
   done: boolean;
 }
 
-// export const updateTodo = (todos: Todo[], id: number, text: string): Todo[] =>
-//   todos.map((todo) => ({
-//     ...todo,
-//     text: todo.id === id ? text : todo.text,
-//   }));
-
-// export const toggleTodo = (todos: Todo[], id: number): Todo[] =>
-//   todos.map((todo) => ({
-//     ...todo,
-//     done: todo.id === id ? !todo.done : todo.done,
-//   }));
-
 const removeTodo = (todos: Todo[], id: number): Todo[] =>
   todos.filter(todo => todo.id !== id);
 
@@ -38,6 +26,12 @@ class TodoStore {
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  load(url: string) {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => (this.todos = data));
   }
 
   addTodo() {
